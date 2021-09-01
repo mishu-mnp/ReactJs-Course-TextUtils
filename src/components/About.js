@@ -21,7 +21,7 @@ function About() {
             setMyStyle({
                 color: "white",
                 backgroundColor: "black",
-                border: "1px solid white"
+                border: "1px solid white",
             })
             setbtnText("Light Mode")
         }
