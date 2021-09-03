@@ -2,9 +2,42 @@ import './App.css';
 // import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import React, { useState } from 'react'
+import Alert from './components/Alert';
+
 
 // let name = "Mishu"
 function App() {
+
+
+  const [mode, setMode] = useState("light")
+  const [alert, setAlert] = useState(null)
+
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark")
+      document.body.style.backgroundColor = '#062e65'
+      showAlert('Dark Mode is enabled', 'success');
+    }
+    else {
+      setMode("light")
+      document.body.style.backgroundColor = 'white'
+      showAlert('Light Mode is enabled', 'success');
+    }
+  }
+
+
+  const showAlert = (message, type) => {
+    setAlert({
+      mssg: message,
+      type: type
+    });
+    setTimeout(() => {
+      setAlert(null)
+    }, 1500);
+  }
+
   return (
     <>
       {/* <nav>
@@ -24,11 +57,13 @@ function App() {
 
       {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
       {/* <Navbar /> */}
-      <Navbar title="TextUtils" />
+      <Navbar title="TextUtils" darkMode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm heading="Analyze your Text here" />
+        <TextForm showAlert={showAlert} heading="Analyze your Text here" darkMode={mode} />
         {/* <About /> */}
       </div>
+
     </>
   );
 }
