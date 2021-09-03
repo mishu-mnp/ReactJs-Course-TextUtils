@@ -23,6 +23,11 @@ function Navbar(props) {
                                 <a className="nav-link active" aria-current="page" href="/">Contact</a>
                             </li>
                         </ul>
+                        <div className="btn-group mx-4" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" id='y' style={{ backgroundColor: 'salmon' }} className="btn btn-outline-primary" onClick={props.colorBtn}>Yellow</button>
+                            <button type="button" id='g' style={{ backgroundColor: 'salmon' }} className="btn btn-outline-primary" onClick={props.colorBtn}>Grey</button>
+                            <button type="button" id='p' style={{ backgroundColor: 'salmon' }} className="btn btn-outline-primary" onClick={props.colorBtn}>Purple</button>
+                        </div>
                         <div className="form-check form-switch">
                             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault" />
                             <label className={`form-check-label text-${props.darkMode === 'light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault">Enable {props.darkMode === 'light' ? 'dark' : 'light'} Mode</label>
