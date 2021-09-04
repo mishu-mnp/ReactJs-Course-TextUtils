@@ -1,10 +1,14 @@
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 // let name = "Mishu"
 function App() {
@@ -19,7 +23,7 @@ function App() {
       setMode("dark")
       document.body.style.backgroundColor = '#062e65'
       showAlert('Dark Mode is enabled', 'success');
-      document.title = 'TextUtils - Dark Mode';
+      // document.title = 'TextUtils - Dark Mode';
       // setInterval(() => {
       //   document.title = 'TextUtils - Analyze your Text';
       // }, 2000);
@@ -33,7 +37,7 @@ function App() {
       setMode("light")
       document.body.style.backgroundColor = 'white'
       showAlert('Light Mode is enabled', 'success');
-      document.title = 'TextUtils - Light Mode';
+      // document.title = 'TextUtils - Light Mode';
     }
   }
 
@@ -41,7 +45,7 @@ function App() {
     setMode('yellow');
     document.body.style.backgroundColor = 'yellow';
     document.getElementById('y').style.backgroundColor = 'yellow'
-    console.log(e.target.id)
+    // console.log(e.target.id)
     if (e.target.id === 'y') {
       setMode('yellow');
       document.body.style.backgroundColor = 'yellow';
@@ -89,12 +93,21 @@ function App() {
       {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
       {/* <Navbar /> */}
 
-      <Navbar title="TextUtils" darkMode={mode} colorBtn={colorBgMode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm showAlert={showAlert} heading="Analyze your Text here" darkMode={mode} />
-        {/* <About /> */}
-      </div>
+      <Router>
+        <Navbar title="TextUtils" darkMode={mode} colorBtn={colorBgMode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <Switch>
+          <Route exact path="/about">
+            <About darkMode={mode} />
+          </Route>
+          <Route exact path="/">
+            <div className="container my-3">
+              <TextForm showAlert={showAlert} heading="Analyze your Text here" darkMode={mode} />
+            </div>
+          </Route>
+        </Switch>
+      </Router>
+
 
     </>
   );
