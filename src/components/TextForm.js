@@ -47,10 +47,10 @@ function TextForm(props) {
     }
 
     const handleCopy = () => {
-        let text = document.getElementById('myText')
-        text.select();
-        navigator.clipboard.writeText(text.value)
-        document.getSelection().removeAllRanges();
+        // let text = document.getElementById('myText')
+        // text.select();
+        navigator.clipboard.writeText(text)
+        // document.getSelection().removeAllRanges();
         // console.log("Text Copied")
         // alert('Text Copied to ClipBoard')
         props.showAlert('Text Copied to Clipboard!', 'success');
