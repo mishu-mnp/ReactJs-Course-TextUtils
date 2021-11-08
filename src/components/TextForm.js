@@ -81,6 +81,9 @@ function TextForm(props) {
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Nothing to Preview!"}</p>
             </div>
+            <div className="gitcommand">
+                <p>git remote remove origin</p>
+            </div>
         </>
     )
 }
