@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
+import Contact from './components/Contact';
 import {
   BrowserRouter as Router,
   Switch,
@@ -99,6 +100,9 @@ function App() {
         <Switch>
           <Route exact path="/about">
             <About darkMode={mode} />
+          </Route>
+          <Route exact path="/contact">
+            <Contact darkMode={mode} />
           </Route>
           <Route exact path="/">
             <div className="container my-3">

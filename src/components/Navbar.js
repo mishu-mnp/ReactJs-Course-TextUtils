@@ -21,7 +21,7 @@ function Navbar(props) {
                                 <Link className="nav-link active" aria-current="page" to="/about">{props.aboutText}</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Contact</a>
+                                <a className="nav-link active" aria-current="page" href="/contact">Contact</a>
                             </li>
                         </ul>
                         <div className="btn-group mx-4" role="group" aria-label="Basic mixed styles example">
