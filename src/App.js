@@ -11,9 +11,8 @@ import {
   Route
 } from "react-router-dom";
 
-// let name = "Mishu"
-function App() {
 
+function App() {
 
   const [mode, setMode] = useState("light")
   const [alert, setAlert] = useState(null)
@@ -43,24 +42,24 @@ function App() {
   }
 
   const colorBgMode = (e) => {
-    setMode('yellow');
-    document.body.style.backgroundColor = 'yellow';
-    document.getElementById('y').style.backgroundColor = 'yellow'
+    // setMode('yellow');
+    // document.body.style.backgroundColor = 'yellow';
+    // document.getElementById('y').style.backgroundColor = 'yellow'
     // console.log(e.target.id)
     if (e.target.id === 'y') {
       setMode('yellow');
       document.body.style.backgroundColor = 'yellow';
-      document.getElementById('y').style.backgroundColor = 'yellow'
+      // document.getElementById('y').style.backgroundColor = 'yellow'
     }
     else if (e.target.id === 'g') {
       setMode('grey');
       document.body.style.backgroundColor = 'grey';
-      document.getElementById('g').style.backgroundColor = 'grey'
+      // document.getElementById('g').style.backgroundColor = 'grey'
     }
     else {
       setMode('purple');
       document.body.style.backgroundColor = 'purple';
-      document.getElementById('p').style.backgroundColor = 'purple'
+      // document.getElementById('p').style.backgroundColor = 'purple'
     }
   }
 
@@ -76,43 +75,23 @@ function App() {
 
   return (
     <>
-      {/* <nav>
-        <ul>
-          <li>Home</li>
-          <li>Blog</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
-      <div classNameName="container">
-        <h1>Hello! {name}</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odio laudantium doloribus. Veniam, adipisci asperiores maiores modi perferendis libero minus! Quae reiciendis doloribus eos, odit excepturi ducimus earum nobis nesciunt itaque ad dolorum magni eveniet voluptas voluptates? Doloremque, velit deleniti.</p>
-        <h2>This is ReactJs Tutorial</h2>
-        <h4>This is some Heading</h4>
-      </div> */}
-
-      {/* <Navbar title="TextUtils" aboutText="About Us" /> */}
-      {/* <Navbar /> */}
-
       <Router>
         <Navbar title="TextUtils" darkMode={mode} colorBtn={colorBgMode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <Switch>
+          <Route exact path="/">
+            <div className="container my-3">
+              <TextForm showAlert={showAlert} heading="Analyze your Text here" darkMode={mode} />
+            </div>
+          </Route>
           <Route exact path="/about">
             <About darkMode={mode} />
           </Route>
           <Route exact path="/contact">
             <Contact darkMode={mode} />
           </Route>
-          <Route exact path="/">
-            <div className="container my-3">
-              <TextForm showAlert={showAlert} heading="Analyze your Text here" darkMode={mode} />
-            </div>
-          </Route>
         </Switch>
       </Router>
-
-
     </>
   );
 }

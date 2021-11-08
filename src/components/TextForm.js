@@ -15,25 +15,10 @@ function TextForm(props) {
 
     const remExtraSpaces = () => {
         let newText = text.split(/[  ]+/)
+        // console.log(newText)
         setText(newText.join(" "))
         props.showAlert('Extra Spaces Removed!', 'success')
     }
-
-    // const handleCapClick = () => {
-    //     console.log("italic")
-    //     // console.log(typeof (text))
-
-    //     let i;
-    //     let capText = "";
-    //     let textSplit = text.split(' ');
-    //     console.log(textSplit);
-    //     for (i = 0; i < textSplit.length; i++) {
-    //         capText += (textSplit[i][0].toUpperCase() + textSplit[i].slice(1, textSplit[i].length) + " ");
-    //     }
-
-    //     setText(capText);
-
-    // }
 
     const handleOnChange = (event) => {
         // console.log("On change");
@@ -68,7 +53,6 @@ function TextForm(props) {
                 </div>
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick} >UpperCase</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleLoClick} >LowerCase</button>
-                {/* <button className="btn btn-primary mx-2" onClick={handleCapClick} >CapText</button> */}
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={clearText} >ClearText</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={handleCopy} >CopyText</button>
                 <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={remExtraSpaces} >Remove Extra Spaces</button>

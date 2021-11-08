@@ -21,7 +21,7 @@ function Navbar(props) {
                                 <Link className="nav-link active" aria-current="page" to="/about">{props.aboutText}</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/contact">Contact</a>
+                                <Link className="nav-link active" aria-current="page" to="/contact">Contact</Link>
                             </li>
                         </ul>
                         <div className="btn-group mx-4" role="group" aria-label="Basic mixed styles example">
@@ -31,7 +31,7 @@ function Navbar(props) {
                         </div>
                         <div className="form-check form-switch">
                             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault" />
-                            <label className={`form-check-label text-${props.darkMode === 'light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault">Enable {props.darkMode === 'light' ? 'dark' : 'light'} Mode</label>
+                            <label className={`form-check-label text-${props.darkMode === 'light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault">Enable {props.darkMode === 'dark' ? 'light' : 'dark'} Mode</label>
                         </div>
                     </div>
                 </div>
